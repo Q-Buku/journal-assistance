@@ -67,13 +67,13 @@
         background: rgba(0, 0, 0, 0.4);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: center; /* Centers vertically on Desktop */
         align-items: center;
         overflow-y: auto;
         padding: 20px;
     }
 
-    /* NEW: Ensures content inside carousel slides is centered */
+    /* Ensures content inside carousel slides is centered */
     .slide-content {
         display: flex;
         flex-direction: column;
@@ -86,30 +86,27 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Reduced to 50% - Icon Size) */
+    /* 4. THE IMAGE (Reduced by 50%) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 4px; /* Reduced padding for smaller size */
+        padding: 10px; /* Reduced padding slightly */
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Drastically reduced size:
-           Min: 30px
-           Max: 50px (Very small, icon size)
-        */
-        width: clamp(30px, 4vw, 50px) !important;
-        max-width: 50px !important;
+        /* Desktop settings: 50% smaller than previous 450px max */
+        width: clamp(120px, 15vw, 225px) !important;
+        max-width: 225px !important;
         height: auto; 
         
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     .slide-img:hover {
-        box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
-        transform: scale(1.1); /* Larger hover scale for visibility */
+        box-shadow: 0 0 15px 3px rgba(0, 140, 186, 0.7);
+        transform: scale(1.02); 
     }
 
     /* 5. BUTTON STYLING */
@@ -134,14 +131,16 @@
     /* 6. SMART DEVICE SPECIFIC (Phones) */
     @media (max-width: 600px) {
         .content-wrapper {
-            padding-top: 100px;
-            justify-content: flex-start;
+            /* Keep vertical alignment low (30%) */
+            justify-content: flex-start !important; 
+            padding-top: 30vh !important;
         }
 
         .slide-img {
-            width: 15% !important; /* Very small on phone screens */
-            max-width: 50px;
-            margin-bottom: 10px;
+            /* 50% smaller than previous 90% */
+            width: 45% !important; 
+            max-width: 225px;
+            margin-bottom: 20px;
         }
 
         .content-wrapper h1 {
@@ -156,10 +155,10 @@
         }
 
         .slide-img {
-            border-width: 2px;
-            padding: 6px;
-            width: 80px !important; /* Slightly larger on huge screens */
-            max-width: 80px !important;
+            border-width: 4px;
+            padding: 15px;
+            width: 300px !important; /* Adjusted for 4k */
+            max-width: 300px !important;
         }
     }
 
