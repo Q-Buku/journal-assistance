@@ -20,7 +20,6 @@
         padding: 5px;
         padding-top: 70px; /* Space for the navbar */
         overflow-x: hidden;
-        background-color: #222; /* Fallback if video fails */
     }
 
     /* 2. TEXT & TYPOGRAPHY */
@@ -85,99 +84,167 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* --- NEW CODE: WIDEN SLIDER ARROWS --- */
-    
-    /* Ensure the carousel doesn't touch the edges so arrows have space */
-    .carousel-container {
-        width: 80%; /* Takes up 80% of screen */
-        max-width: 800px;
-        margin: 0 auto; /* Centers the slider */
-        position: relative;
+    /* 4. THE IMAGE */
+    .slide-img {
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        padding: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+        width: clamp(30px, 4vw, 50px) !important;
+        max-width: 50px !important;
+        height: auto; 
+        margin-bottom: 15px;
+        transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
-    /* Move the Left Arrow further left */
+    .slide-img:hover {
+        box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
+        transform: scale(1.1);
+    }
+
+    /* 5. CAROUSEL ARROW DISTANCE ADJUSTMENT */
+    #mainCarousel {
+        width: 80%; /* Shrinks the container so arrows have room to move outward */
+        max-width: 900px;
+        overflow: visible; /* Allows arrows to be seen outside the box */
+    }
+
     .carousel-control-prev {
-        left: -10% !important; /* Adjust this % to move further/closer */
-        width: 5%; /* Reduces the click area so it doesn't cover content */
+        left: -80px !important; /* Move left arrow outward */
     }
 
-    /* Move the Right Arrow further right */
     .carousel-control-next {
-        right: -10% !important; /* Adjust this % to move further/closer */
-        width: 5%;
+        right: -80px !important; /* Move right arrow outward */
     }
 
-    /* OPTIONAL: Make arrows easier to see */
+    /* Makes arrows more visible over video */
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        background-color: rgba(0,0,0,0.5); /* Dark background behind arrow */
+        background-color: rgba(0, 0, 0, 0.3);
         border-radius: 50%;
-        padding: 2rem;
-        background-size: 50% 50%;
+        background-size: 60%;
+        padding: 20px;
     }
 
-    /* Responsive adjustment for mobile: Bring them closer so they don't vanish */
-    @media (max-width: 768px) {
-        .carousel-container {
-            width: 90%;
+    /* 6. SMART DEVICE SPECIFIC */
+    @media (max-width: 600px) {
+        .content-wrapper {
+            padding-top: 100px;
+            justify-content: flex-start;
         }
-        .carousel-control-prev { left: -5% !important; }
-        .carousel-control-next { right: -5% !important; }
+
+        #mainCarousel {
+            width: 75%; /* More room for arrows on mobile */
+        }
+
+        .carousel-control-prev { left: -45px !important; }
+        .carousel-control-next { right: -45px !important; }
+
+        .slide-img {
+            width: 15% !important;
+            max-width: 50px;
+            margin-bottom: 10px;
+        }
     }
 
+    /* 7. HIDDEN ELEMENTS */
+    .elfsight-app-a2603afa-264d-44fd-a6a8-5ecb3be7d8c6,
+    .elfsight-app-27fd129f-b443-497f-b128-af08ad4d46a7 {
+        display: none !important;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
 </style>
+     
 </head>
+
 <body>
+
+    <video autoplay muted loop id="myVideo" playsinline>
+        <source src="restu.tv.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header id="header">
+        <nav class="navbar navbar-dark fixed-top bg-dark navbar-custom">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <a class="navbar-brand" href="https://www.mustawda-al-hatf.org/">Quranic AI Assistance (Beta) by عريف حفي</a> 
+                <div class="d-flex">
+                    <a class="btn btn-secondary btn-sm" href="https://q-assistance.github.io/mustawda-al-hatf/funding.html" style="white-space: nowrap;">
+                        Infaq || Wakaf Now!
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <div class="content-wrapper">
         
-        <div class="slide-content">
-            <h1>AI Assistance</h1>
-            <h4>Your Future Partner</h4>
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="false">
             
-            <br>
-
-            <div class="carousel-container">
-                <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active">
+                    <div class="slide-content">
+                        <img src="Nouri.png" alt="Journal Image" class="slide-img">
                         
-                        <div class="carousel-item active">
-                            <img src="https://picsum.photos/800/400?random=1" class="d-block w-100" alt="Slide 1">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First Slide</h5>
-                            </div>
-                        </div>
+                        <h1 class="text-white mb-3 text-center">My Light (نوري)</h1>
+                        <h4 class="mb-4">Tap the bot icon for AI Assistance</h4>
 
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/800/400?random=2" class="d-block w-100" alt="Slide 2">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Second Slide</h5>
-                            </div>
+                        <div class="dropdown">
+                            <button class="btn btn-light btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <label style="cursor: pointer;">Direct Links</label>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="https://drive.google.com/file/d/1UhDNsuNHTu07bUVoiwmSk3YP8pvVudmW/view?usp=sharing" class="dropdown-item">Download PDF File</a></li>
+                                <li><a href="https://q-assistance.github.io/mustawda-al-hatf/funding.html" class="dropdown-item">Contribute</a></li>
+                                <li><a href="https://api.whatsapp.com/send?phone=60175869436" class="dropdown-item">Inquiries</a></li>
+                            </ul>
                         </div>
-
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/800/400?random=3" class="d-block w-100" alt="Slide 3">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Third Slide</h5>
-                            </div>
-                        </div>
-
                     </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
+
+                <div class="carousel-item">
+                    <div class="slide-content">
+                        <img src="QURAN3030.png" alt="Funding Image" class="slide-img">
+                        
+                        <h1 class="text-white mb-3 text-center">Quran 30 for 30<br> Life Lessons</h1>
+                        <h4 class="mb-4">Tap the bot icon for AI Assistance</h4>
+
+                        <div class="dropdown">
+                            <button class="btn btn-light btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <label style="cursor: pointer;">Direct Links</label>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="https://drive.google.com/file/d/1G8TQ88ey81DfmAn-UCTc9mnXIxJxN1Wf/view?usp=sharing" class="dropdown-item">Download PDF File</a></li>
+                                <li><a href="https://q-assistance.github.io/mustawda-al-hatf/funding.html" class="dropdown-item">Contribute</a></li>
+                                <li><a href="https://api.whatsapp.com/send?phone=60175869436" class="dropdown-item">Inquiries</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-27fd129f-b443-497f-b128-af08ad4d46a7" data-elfsight-app-lazy></div>
 
 </body>
 </html>
