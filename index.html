@@ -26,6 +26,7 @@
     h1 {
         color: white;
         font-family: 'Agency FB', sans-serif;
+        /* Scales font between 1.8rem and 3.5rem based on screen size */
         font-size: clamp(1.8rem, 5vw, 3.5rem); 
         text-align: center;
     }
@@ -72,6 +73,7 @@
         padding: 20px;
     }
 
+    /* NEW: Ensures content inside carousel slides is centered */
     .slide-content {
         display: flex;
         flex-direction: column;
@@ -84,71 +86,84 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE */
+    /* 4. THE IMAGE (Reduced to 50% - Icon Size) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 4px;
+        padding: 4px; /* Reduced padding for smaller size */
         background-color: rgba(255, 255, 255, 0.1);
+        
+        /* Drastically reduced size:
+           Min: 30px
+           Max: 50px (Very small, icon size)
+        */
         width: clamp(30px, 4vw, 50px) !important;
         max-width: 50px !important;
         height: auto; 
+        
         margin-bottom: 15px;
+        
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     .slide-img:hover {
         box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
-        transform: scale(1.1);
+        transform: scale(1.1); /* Larger hover scale for visibility */
     }
 
-    /* 5. CAROUSEL ARROW DISTANCE ADJUSTMENT */
-    #mainCarousel {
-        width: 80%; /* Shrinks the container so arrows have room to move outward */
-        max-width: 900px;
-        overflow: visible; /* Allows arrows to be seen outside the box */
+    /* 5. BUTTON STYLING */
+    .button {
+        appearance: none;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        background-color: #ffffffdf;
+        border-radius: 6px;
+        border: 0;
+        color: #000000;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 400;
+        height: 3em;
+        line-height: 3em;
+        padding: 0 2em;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
     }
 
-    .carousel-control-prev {
-        left: -80px !important; /* Move left arrow outward */
-    }
-
-    .carousel-control-next {
-        right: -80px !important; /* Move right arrow outward */
-    }
-
-    /* Makes arrows more visible over video */
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
-        background-size: 60%;
-        padding: 20px;
-    }
-
-    /* 6. SMART DEVICE SPECIFIC */
+    /* 6. SMART DEVICE SPECIFIC (Phones) */
     @media (max-width: 600px) {
         .content-wrapper {
             padding-top: 100px;
             justify-content: flex-start;
         }
 
-        #mainCarousel {
-            width: 75%; /* More room for arrows on mobile */
-        }
-
-        .carousel-control-prev { left: -45px !important; }
-        .carousel-control-next { right: -45px !important; }
-
         .slide-img {
-            width: 15% !important;
+            width: 15% !important; /* Very small on phone screens */
             max-width: 50px;
             margin-bottom: 10px;
         }
+
+        .content-wrapper h1 {
+            margin-bottom: 15px !important;
+        }
     }
 
-    /* 7. HIDDEN ELEMENTS */
+    /* 7. SMART BOARD & 4K OPTIMIZATION (Ultra-wide/High-res) */
+    @media (min-width: 2000px) {
+        .content-wrapper {
+            gap: 20px; 
+        }
+
+        .slide-img {
+            border-width: 2px;
+            padding: 6px;
+            width: 80px !important; /* Slightly larger on huge screens */
+            max-width: 80px !important;
+        }
+    }
+
+    /* 8. HIDDEN ELEMENTS */
     .elfsight-app-a2603afa-264d-44fd-a6a8-5ecb3be7d8c6,
     .elfsight-app-27fd129f-b443-497f-b128-af08ad4d46a7 {
         display: none !important;
