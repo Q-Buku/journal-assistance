@@ -100,12 +100,13 @@
         padding: 4px;
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* DESKTOP/DEFAULT (Unchanged) */
-        width: clamp(150px, 25vw, 550px) !important;
+        /* UPDATED: SMALLER DESKTOP SIZE */
+        /* Reduced from 550px max to 400px max, and 25vw to 20vw */
+        width: clamp(120px, 20vw, 400px) !important;
         max-width: 100% !important; 
         height: auto; 
         
-        margin-bottom: 20px; /* Restored to original 20px */
+        margin-bottom: 20px; 
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
@@ -122,12 +123,12 @@
 
     /* =========================================
        6. SMART DEVICE SPECIFIC (Mobile/Phones)
-       Fixed Alignment
+       UNCHANGED ("Fixed" Alignment)
        ========================================= */
     @media (max-width: 600px) {
         .content-wrapper {
             justify-content: flex-start; 
-            padding-top: 120px; /* Clears navbar cleanly */
+            padding-top: 120px; 
             padding-left: 15px;
             padding-right: 15px;
         }
