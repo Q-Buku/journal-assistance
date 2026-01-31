@@ -78,23 +78,25 @@
     }
 
     /* 4. THE IMAGE (Fixed Proportionally for All Platforms) */
-    #myImage {
-        border: 1px solid #ddd;
-        border-radius: 2px;
-        padding: 5px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        background-color: rgba(255, 255, 255, 0.1);
-        
-        /* Fluid width: Min 160px (mobile), Max 400px (Smart Board) */
-        width: clamp(160px, 20vw, 185px);
-        height: auto; /* Maintains aspect ratio */
-        
-        /* Fluid margin: Scales with height of the screen */
-        margin-bottom: clamp(40px, 4vh, 60px);
-        
-        transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-    }
+ /* 4. THE IMAGE (Compact Desktop, Scaled Mobile) */
+  #myImage {
+      box-sizing: border-box; /* Ensures padding doesn't bloat the width */
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      padding: 20px 5px; /* Shorthand: 20px top/bottom, 5px left/right */
+      background-color: rgba(255, 255, 255, 0.1);
+      
+      /* Min: 140px (Mobile)
+         Val: 10vw (Scales slowly)
+         Max: 160px (Desktop Cap)
+      */
+      width: clamp(140px, 10vw, 160px); 
+      height: auto; 
+      
+      margin-bottom: clamp(30px, 3vh, 50px);
+      
+      transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
 
     #myImage:hover {
         box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
@@ -254,6 +256,7 @@
 
 </body>
 </html>
+
 
 
 
