@@ -16,14 +16,14 @@
 <style>
     /* 1. RESET & BASE STYLES */
     * {
-        box-sizing: border-box; /* Ensures padding doesn't break fixed dimensions */
+        box-sizing: border-box; 
     }
 
     body {
         margin: 0;
         padding: 0;
         overflow-x: hidden;
-        background-color: #000; /* Fallback color */
+        background-color: #000;
     }
 
     /* 2. TEXT & TYPOGRAPHY */
@@ -62,7 +62,7 @@
         object-fit: cover;
     }
 
-    /* Main Container - Centered by Default */
+    /* Main Container */
     .content-wrapper {
         position: fixed;
         top: 0;
@@ -74,7 +74,7 @@
         flex-direction: column;
         justify-content: center; /* Center vertically on desktop */
         align-items: center;     /* Center horizontally */
-        overflow-y: auto;        /* Allow scrolling if height is small */
+        overflow-y: auto;        
         padding: 20px;
         z-index: 1;
     }
@@ -89,7 +89,7 @@
 
     .navbar-custom {
         padding: 0.5rem 1rem !important;
-        z-index: 1030; /* Ensure navbar is above content wrapper */
+        z-index: 1030;
     }
 
     /* 4. THE IMAGE */
@@ -100,12 +100,12 @@
         padding: 4px;
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Default Responsive Sizing */
+        /* DESKTOP/DEFAULT (Unchanged) */
         width: clamp(150px, 25vw, 550px) !important;
         max-width: 100% !important; 
         height: auto; 
         
-        margin-bottom: 25px; /* Fixed margin for desktop */
+        margin-bottom: 20px; /* Restored to original 20px */
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
@@ -122,41 +122,38 @@
 
     /* =========================================
        6. SMART DEVICE SPECIFIC (Mobile/Phones)
-       "Fixed" Alignment applied here
+       Fixed Alignment
        ========================================= */
     @media (max-width: 600px) {
         .content-wrapper {
-            /* Fix content to top with specific padding to clear Navbar */
             justify-content: flex-start; 
-            padding-top: 120px; /* Increased from 100px for safety */
+            padding-top: 120px; /* Clears navbar cleanly */
             padding-left: 15px;
             padding-right: 15px;
         }
 
         .slide-img {
-            /* Fixed width logic for mobile */
             width: 70% !important; 
             max-width: 320px !important; 
-            margin-bottom: 20px; /* Fixed spacing */
+            margin-bottom: 20px; 
         }
 
         .content-wrapper h1 {
-            font-size: 2.5rem; /* Fixed readable size */
+            font-size: 2.5rem; 
             margin-bottom: 10px !important;
         }
         
         h4 {
-            margin-bottom: 30px !important; /* Extra space before button */
+            margin-bottom: 30px !important;
         }
     }
 
     /* =========================================
        7. SMART BOARD & 4K OPTIMIZATION
-       "Fixed" Center Alignment
+       Fixed Alignment
        ========================================= */
     @media (min-width: 2000px) {
         .content-wrapper {
-            /* Force center alignment for huge screens */
             justify-content: center;
             gap: 40px; 
         }
@@ -164,25 +161,14 @@
         .slide-img {
             border-width: 4px;
             padding: 10px;
-            /* Scaled up fixed sizing */
             width: 600px !important; 
             max-width: 800px !important;
             margin-bottom: 40px;
         }
         
-        h1 {
-            font-size: 5rem;
-        }
-        
-        h4 {
-            font-size: 3rem;
-            margin-top: 0;
-        }
-        
-        .btn-lg {
-            font-size: 1.5rem;
-            padding: 1rem 2rem;
-        }
+        h1 { font-size: 5rem; }
+        h4 { font-size: 3rem; margin-top: 0; }
+        .btn-lg { font-size: 1.5rem; padding: 1rem 2rem; }
     }
 
     /* 8. HIDDEN ELEMENTS */
