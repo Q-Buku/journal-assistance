@@ -94,10 +94,7 @@
         padding: 15px; 
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Min: 250px
-           Val: 30vw
-           Max: 450px (Desktop target - 50% larger than 300px)
-        */
+        /* Desktop settings */
         width: clamp(250px, 30vw, 450px) !important;
         max-width: 450px !important;
         height: auto; 
@@ -134,13 +131,16 @@
     /* 6. SMART DEVICE SPECIFIC (Phones) */
     @media (max-width: 600px) {
         .content-wrapper {
-            /* REVERTED: Removed padding-top and flex-start to allow vertical centering */
-            padding-top: 70px; 
-            justify-content: center !important; 
+            /* ALIGNMENT CHANGE:
+               1. justify-content: flex-start -> Stops it from forcing center.
+               2. padding-top: 30vh -> Pushes content down 30% of the screen height.
+            */
+            justify-content: flex-start !important; 
+            padding-top: 30vh !important;
         }
 
         .slide-img {
-            /* Huge on mobile (90% of screen width) */
+            /* Maintain previous massive size (90%) */
             width: 90% !important; 
             max-width: 450px;
             margin-bottom: 20px;
@@ -160,7 +160,7 @@
         .slide-img {
             border-width: 5px;
             padding: 25px;
-            width: 600px !important; /* Massive for 4k */
+            width: 600px !important; 
             max-width: 600px !important;
         }
     }
