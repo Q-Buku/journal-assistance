@@ -18,9 +18,9 @@
     body {
         margin: 0;
         padding: 5px;
-        padding-top: 70px; /* Space for the navbar */
+        padding-top: 70px; 
         overflow-x: hidden;
-        background-color: #222; /* Fallback if video fails */
+        background-color: #222; 
     }
 
     /* 2. TEXT & TYPOGRAPHY */
@@ -85,46 +85,58 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* --- NEW CODE: WIDEN SLIDER ARROWS --- */
+    /* --- 4. SLIDER ADJUSTMENTS (UPDATED) --- */
     
-    /* Ensure the carousel doesn't touch the edges so arrows have space */
     .carousel-container {
-        width: 80%; /* Takes up 80% of screen */
-        max-width: 800px;
-        margin: 0 auto; /* Centers the slider */
+        /* INCREASED SIZE: 80% -> 85% width, 800px -> 1200px max-width */
+        width: 85%; 
+        max-width: 1200px; 
+        margin: 0 auto; 
         position: relative;
     }
 
-    /* Move the Left Arrow further left */
+    /* ARROWS: Adjusted to fit alongside the larger image */
     .carousel-control-prev {
-        left: -10% !important; /* Adjust this % to move further/closer */
-        width: 5%; /* Reduces the click area so it doesn't cover content */
+        /* Move arrow to the left, but keep it on screen */
+        left: -8% !important; 
+        width: 5%; 
     }
 
-    /* Move the Right Arrow further right */
     .carousel-control-next {
-        right: -10% !important; /* Adjust this % to move further/closer */
+        /* Move arrow to the right, but keep it on screen */
+        right: -8% !important; 
         width: 5%;
     }
 
-    /* OPTIONAL: Make arrows easier to see */
+    /* Arrow Styling (Dark Circles) */
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        background-color: rgba(0,0,0,0.5); /* Dark background behind arrow */
+        background-color: rgba(0,0,0,0.5); 
         border-radius: 50%;
         padding: 2rem;
         background-size: 50% 50%;
     }
 
-    /* Responsive adjustment for mobile: Bring them closer so they don't vanish */
+    /* --- MOBILE ADJUSTMENTS --- */
+    /* On small screens, we make the image almost full width */
+    /* We pull the arrows slightly closer so they don't fall off the phone screen */
     @media (max-width: 768px) {
         .carousel-container {
-            width: 90%;
+            width: 88%; /* Slightly wider on mobile */
         }
-        .carousel-control-prev { left: -5% !important; }
-        .carousel-control-next { right: -5% !important; }
+        .carousel-control-prev { 
+            left: -6% !important; /* Closer to edge */
+        }
+        .carousel-control-next { 
+            right: -6% !important; /* Closer to edge */
+        }
+        
+        /* Make arrow icons slightly smaller on mobile */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            padding: 1.5rem;
+        }
     }
-
 </style>
 </head>
 <body>
@@ -181,3 +193,4 @@
 
 </body>
 </html>
+
