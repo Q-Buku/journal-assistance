@@ -86,23 +86,23 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Increased to 200px) */
+    /* 4. THE IMAGE (Increased to 300px) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 10px; /* Increased padding for larger frame */
+        padding: 15px; /* Increased padding */
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Min: 150px
-           Val: 20vw
-           Max: 200px (Target Size)
+        /* Min: 200px
+           Val: 25vw
+           Max: 300px (Target Size)
         */
-        width: clamp(150px, 20vw, 200px) !important;
-        max-width: 200px !important;
+        width: clamp(200px, 25vw, 300px) !important;
+        max-width: 300px !important;
         height: auto; 
         
-        margin-bottom: 30px; /* Increased margin for balance */
+        margin-bottom: 30px;
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
@@ -139,8 +139,8 @@
         }
 
         .slide-img {
-            width: 50% !important; /* Half screen width on mobile */
-            max-width: 200px;
+            width: 70% !important; /* Increased from 50% to 70% */
+            max-width: 300px;
             margin-bottom: 20px;
         }
 
@@ -156,10 +156,10 @@
         }
 
         .slide-img {
-            border-width: 3px;
-            padding: 15px;
-            width: 300px !important; /* Scaled up for 4k screens */
-            max-width: 300px !important;
+            border-width: 4px;
+            padding: 20px;
+            width: 450px !important; /* Scaled up to 450px */
+            max-width: 450px !important;
         }
     }
 
