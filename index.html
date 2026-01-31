@@ -18,7 +18,7 @@
     body {
         margin: 0;
         padding: 5px;
-        padding-top: 70px; /* Space for the navbar */
+        padding-top: 70px; 
         overflow-x: hidden;
     }
 
@@ -26,7 +26,6 @@
     h1 {
         color: white;
         font-family: 'Agency FB', sans-serif;
-        /* Scales font between 1.8rem and 3.5rem based on screen size */
         font-size: clamp(1.8rem, 5vw, 3.5rem); 
         text-align: center;
     }
@@ -73,7 +72,6 @@
         padding: 20px;
     }
 
-    /* NEW: Ensures content inside carousel slides is centered */
     .slide-content {
         display: flex;
         flex-direction: column;
@@ -86,30 +84,31 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Sized increased by 50%) */
+    /* 4. THE IMAGE (significantly larger now) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 4px; /* Reduced padding for smaller size */
+        padding: 4px;
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* SIZING UPDATE: Increased by 50% from original values.
-           Old Clamp: (30px, 4vw, 200px)
-           New Clamp: (45px, 6vw, 300px)
+        /* MAJOR CHANGE: 
+           - Min size: 80px (was 30px)
+           - Dynamic size: 15% of screen (was 4%)
+           - Max size: 350px (was 200px)
         */
-        width: clamp(45px, 6vw, 300px) !important;
-        max-width: 750px !important; /* Increased from 500px */
+        width: clamp(80px, 15vw, 350px) !important;
+        max-width: 100% !important; 
         height: auto; 
         
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     .slide-img:hover {
-        box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
-        transform: scale(1.1); /* Larger hover scale for visibility */
+        box-shadow: 0 0 15px 4px rgba(0, 140, 186, 0.9);
+        transform: scale(1.05); 
     }
 
     /* 5. BUTTON STYLING */
@@ -139,10 +138,13 @@
         }
 
         .slide-img {
-            /* SIZING UPDATE: Increased by 50% for mobile */
-            width: 22.5% !important; /* Was 15% */
-            max-width: 75px; /* Was 50px */
-            margin-bottom: 10px;
+            /* MOBILE FIX:
+               - Was capped at 50px (icon size).
+               - Now capped at 180px (book cover size).
+            */
+            width: 35% !important; 
+            max-width: 180px !important; 
+            margin-bottom: 15px;
         }
 
         .content-wrapper h1 {
@@ -150,18 +152,17 @@
         }
     }
 
-    /* 7. SMART BOARD & 4K OPTIMIZATION (Ultra-wide/High-res) */
+    /* 7. SMART BOARD & 4K OPTIMIZATION */
     @media (min-width: 2000px) {
         .content-wrapper {
             gap: 20px; 
         }
 
         .slide-img {
-            border-width: 2px;
-            padding: 6px;
-            /* SIZING UPDATE: Increased by 50% for large screens */
-            width: 120px !important; /* Was 80px */
-            max-width: 120px !important; /* Was 80px */
+            border-width: 3px;
+            padding: 8px;
+            width: 250px !important; 
+            max-width: 300px !important;
         }
     }
 
