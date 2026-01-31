@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-     
+      
     <title>AI Assistance</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -73,7 +73,7 @@
         padding: 20px;
     }
 
-    /* NEW: Ensures content inside carousel slides is centered */
+    /* Ensures content inside carousel slides is centered */
     .slide-content {
         display: flex;
         flex-direction: column;
@@ -86,30 +86,31 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Reduced to 50% - Icon Size) */
+    /* 4. THE IMAGE (Increased by 50%) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 4px; /* Reduced padding for smaller size */
+        padding: 4px; 
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Drastically reduced size:
-           Min: 30px
-           Max: 50px (Very small, icon size)
+        /* UPDATED SIZES (+50%):
+           Old Min: 30px -> New Min: 45px
+           Old Max: 50px -> New Max: 75px
+           Old Viewport: 4vw -> New Viewport: 6vw
         */
-        width: clamp(30px, 4vw, 50px) !important;
-        max-width: 50px !important;
+        width: clamp(45px, 6vw, 75px) !important;
+        max-width: 75px !important;
         height: auto; 
         
-        margin-bottom: 15px;
+        margin-bottom: 15px; /* Margin maintained */
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     .slide-img:hover {
         box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
-        transform: scale(1.1); /* Larger hover scale for visibility */
+        transform: scale(1.1); 
     }
 
     /* 5. BUTTON STYLING */
@@ -139,9 +140,13 @@
         }
 
         .slide-img {
-            width: 15% !important; /* Very small on phone screens */
-            max-width: 50px;
-            margin-bottom: 10px;
+            /* UPDATED PHONE SIZE:
+               Old: 15% -> New: 22.5% 
+               Old Max: 50px -> New Max: 75px
+            */
+            width: 22.5% !important; 
+            max-width: 75px;
+            margin-bottom: 10px; /* Margin maintained */
         }
 
         .content-wrapper h1 {
@@ -158,8 +163,11 @@
         .slide-img {
             border-width: 2px;
             padding: 6px;
-            width: 80px !important; /* Slightly larger on huge screens */
-            max-width: 80px !important;
+            /* UPDATED 4K SIZE:
+               Old: 80px -> New: 120px
+            */
+            width: 120px !important; 
+            max-width: 120px !important;
         }
     }
 
@@ -173,7 +181,7 @@
         overflow: hidden;
     }
 </style>
-     
+      
 </head>
 
 <body>
