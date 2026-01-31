@@ -18,7 +18,7 @@
     body {
         margin: 0;
         padding: 5px;
-        padding-top: 70px; /* Space for the navbar */
+        padding-top: 70px;
         overflow-x: hidden;
     }
 
@@ -26,7 +26,6 @@
     h1 {
         color: white;
         font-family: 'Agency FB', sans-serif;
-        /* Scales font between 1.8rem and 3.5rem based on screen size */
         font-size: clamp(1.8rem, 5vw, 3.5rem); 
         text-align: center;
     }
@@ -77,30 +76,31 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Reduced & Compact Size) */
+    /* 4. THE IMAGE (TINY VERSION) */
     #myImage {
-        box-sizing: border-box; 
+        box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 10px 5px; /* Reduced vertical padding from 20px to 10px */
+        padding: 8px 4px; /* Very tight padding */
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Min: 80px (Mobile)
-           Val: 8vw (Scaling)
-           Max: 120px (Desktop - Reduced from 160px)
+        /* Now drastically smaller:
+           Min: 60px 
+           Target: 8vw
+           Max: 100px 
         */
-        width: clamp(80px, 8vw, 120px); 
-        height: auto; 
+        width: clamp(60px, 8vw, 100px) !important;
+        max-width: 100px !important; /* Hard limit */
+        height: auto;
         
-        /* Reduced margin from 30px-50px to 15px-30px */
-        margin-bottom: clamp(15px, 2vh, 30px);
+        margin-bottom: 20px;
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     #myImage:hover {
         box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
-        transform: scale(1.02);
+        transform: scale(1.05);
     }
 
     /* 5. BUTTON STYLING */
@@ -130,7 +130,8 @@
         }
 
         #myImage {
-            width: 35%; /* Reduced from 55% to keep it small on mobile */
+            /* 25% of a phone screen (approx 360px) is roughly 90px */
+            width: 25% !important; 
             margin-bottom: 15px;
         }
 
@@ -142,12 +143,15 @@
     /* 7. SMART BOARD & 4K OPTIMIZATION */
     @media (min-width: 2000px) {
         .content-wrapper {
-            gap: 20px;
+            gap: 20px; 
         }
         
         #myImage {
-            border-width: 2px; /* Slimmed down from 3px for cleaner look */
+            border-width: 2px;
             padding: 8px;
+            /* Allow it to be slightly bigger on massive 4k screens, but still small */
+            width: 140px !important; 
+            max-width: 140px !important;
         }
     }
 
@@ -256,6 +260,7 @@
 
 </body>
 </html>
+
 
 
 
