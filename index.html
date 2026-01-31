@@ -73,7 +73,7 @@
         padding: 20px;
     }
 
-    /* NEW: Ensures content inside carousel slides is centered */
+    /* Ensures content inside carousel slides is centered */
     .slide-content {
         display: flex;
         flex-direction: column;
@@ -86,30 +86,30 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Reduced to 50% - Icon Size) */
+    /* 4. THE IMAGE (Increased to 200px) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 4px; /* Reduced padding for smaller size */
+        padding: 10px; /* Increased padding for larger frame */
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Drastically reduced size:
-           Min: 30px
-           Max: 50px (Very small, icon size)
+        /* Min: 150px
+           Val: 20vw
+           Max: 200px (Target Size)
         */
-        width: clamp(30px, 4vw, 50px) !important;
-        max-width: 50px !important;
+        width: clamp(150px, 20vw, 200px) !important;
+        max-width: 200px !important;
         height: auto; 
         
-        margin-bottom: 15px;
+        margin-bottom: 30px; /* Increased margin for balance */
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     .slide-img:hover {
-        box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
-        transform: scale(1.1); /* Larger hover scale for visibility */
+        box-shadow: 0 0 15px 3px rgba(0, 140, 186, 0.7);
+        transform: scale(1.02); 
     }
 
     /* 5. BUTTON STYLING */
@@ -139,9 +139,9 @@
         }
 
         .slide-img {
-            width: 15% !important; /* Very small on phone screens */
-            max-width: 50px;
-            margin-bottom: 10px;
+            width: 50% !important; /* Half screen width on mobile */
+            max-width: 200px;
+            margin-bottom: 20px;
         }
 
         .content-wrapper h1 {
@@ -156,10 +156,10 @@
         }
 
         .slide-img {
-            border-width: 2px;
-            padding: 6px;
-            width: 80px !important; /* Slightly larger on huge screens */
-            max-width: 80px !important;
+            border-width: 3px;
+            padding: 15px;
+            width: 300px !important; /* Scaled up for 4k screens */
+            max-width: 300px !important;
         }
     }
 
