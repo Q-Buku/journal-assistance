@@ -77,26 +77,26 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Fixed Proportionally for All Platforms) */
- /* 4. THE IMAGE (Compact Desktop, Scaled Mobile) */
-  #myImage {
-      box-sizing: border-box; /* Ensures padding doesn't bloat the width */
-      border: 1px solid #ddd;
-      border-radius: 2px;
-      padding: 20px 5px; /* Shorthand: 20px top/bottom, 5px left/right */
-      background-color: rgba(255, 255, 255, 0.1);
-      
-      /* Min: 140px (Mobile)
-         Val: 10vw (Scales slowly)
-         Max: 160px (Desktop Cap)
-      */
-      width: clamp(140px, 10vw, 160px); 
-      height: auto; 
-      
-      margin-bottom: clamp(30px, 3vh, 50px);
-      
-      transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  }
+    /* 4. THE IMAGE (Reduced & Compact Size) */
+    #myImage {
+        box-sizing: border-box; 
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        padding: 10px 5px; /* Reduced vertical padding from 20px to 10px */
+        background-color: rgba(255, 255, 255, 0.1);
+        
+        /* Min: 80px (Mobile)
+           Val: 8vw (Scaling)
+           Max: 120px (Desktop - Reduced from 160px)
+        */
+        width: clamp(80px, 8vw, 120px); 
+        height: auto; 
+        
+        /* Reduced margin from 30px-50px to 15px-30px */
+        margin-bottom: clamp(15px, 2vh, 30px);
+        
+        transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    }
 
     #myImage:hover {
         box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
@@ -126,12 +126,12 @@
     @media (max-width: 600px) {
         .content-wrapper {
             padding-top: 100px;
-            justify-content: flex-start; /* Better for scrolling on small screens */
+            justify-content: flex-start;
         }
 
         #myImage {
-            width: 55%; /* Slightly larger relative to phone screen */
-            margin-bottom: 20px;
+            width: 35%; /* Reduced from 55% to keep it small on mobile */
+            margin-bottom: 15px;
         }
 
         .content-wrapper h1 {
@@ -139,15 +139,15 @@
         }
     }
 
-    /* 7. SMART BOARD & 4K OPTIMIZATION (Ultra-wide/High-res) */
+    /* 7. SMART BOARD & 4K OPTIMIZATION */
     @media (min-width: 2000px) {
         .content-wrapper {
-            gap: 20px; /* Adds consistent spacing between elements */
+            gap: 20px;
         }
         
         #myImage {
-            border-width: 3px;
-            padding: 10px;
+            border-width: 2px; /* Slimmed down from 3px for cleaner look */
+            padding: 8px;
         }
     }
 
@@ -256,6 +256,7 @@
 
 </body>
 </html>
+
 
 
 
