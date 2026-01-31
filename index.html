@@ -86,27 +86,30 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Renamed to match HTML class) */
+    /* 4. THE IMAGE (Reduced to 50% - Icon Size) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 10px 5px; /* Compact padding */
+        padding: 4px; /* Reduced padding for smaller size */
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* TINY SIZE SETTINGS (From previous request) */
-        width: clamp(60px, 8vw, 100px); 
-        max-width: 100px;
+        /* Drastically reduced size:
+           Min: 30px
+           Max: 50px (Very small, icon size)
+        */
+        width: clamp(30px, 4vw, 50px) !important;
+        max-width: 50px !important;
         height: auto; 
         
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     .slide-img:hover {
         box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
-        transform: scale(1.05);
+        transform: scale(1.1); /* Larger hover scale for visibility */
     }
 
     /* 5. BUTTON STYLING */
@@ -132,12 +135,13 @@
     @media (max-width: 600px) {
         .content-wrapper {
             padding-top: 100px;
-            justify-content: flex-start; /* Better for scrolling on small screens */
+            justify-content: flex-start;
         }
 
         .slide-img {
-            width: 25%; /* Small on phones */
-            margin-bottom: 15px;
+            width: 15% !important; /* Very small on phone screens */
+            max-width: 50px;
+            margin-bottom: 10px;
         }
 
         .content-wrapper h1 {
@@ -153,8 +157,9 @@
 
         .slide-img {
             border-width: 2px;
-            padding: 8px;
-            width: 140px; /* Slight increase for huge screens */
+            padding: 6px;
+            width: 80px !important; /* Slightly larger on huge screens */
+            max-width: 80px !important;
         }
     }
 
