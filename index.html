@@ -67,13 +67,13 @@
         background: rgba(0, 0, 0, 0.4);
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Centers vertically on Desktop */
+        justify-content: center;
         align-items: center;
         overflow-y: auto;
         padding: 20px;
     }
 
-    /* Ensures content inside carousel slides is centered */
+    /* NEW: Ensures content inside carousel slides is centered */
     .slide-content {
         display: flex;
         flex-direction: column;
@@ -86,27 +86,30 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Reduced by 50%) */
+    /* 4. THE IMAGE (Reduced to 50% - Icon Size) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 10px; 
+        padding: 4px; /* Reduced padding for smaller size */
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Desktop settings: 225px max */
-        width: clamp(120px, 15vw, 225px) !important;
-        max-width: 225px !important;
+        /* Drastically reduced size:
+           Min: 30px
+           Max: 50px (Very small, icon size)
+        */
+        width: clamp(30px, 4vw, 50px) !important;
+        max-width: 50px !important;
         height: auto; 
         
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     .slide-img:hover {
-        box-shadow: 0 0 15px 3px rgba(0, 140, 186, 0.7);
-        transform: scale(1.02); 
+        box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
+        transform: scale(1.1); /* Larger hover scale for visibility */
     }
 
     /* 5. BUTTON STYLING */
@@ -131,16 +134,14 @@
     /* 6. SMART DEVICE SPECIFIC (Phones) */
     @media (max-width: 600px) {
         .content-wrapper {
-            /* Keep vertical alignment low (30%) */
-            justify-content: flex-start !important; 
-            padding-top: 30vh !important;
+            padding-top: 100px;
+            justify-content: flex-start;
         }
 
         .slide-img {
-            /* 45% width on mobile */
-            width: 45% !important; 
-            max-width: 225px;
-            margin-bottom: 20px;
+            width: 15% !important; /* Very small on phone screens */
+            max-width: 50px;
+            margin-bottom: 10px;
         }
 
         .content-wrapper h1 {
@@ -155,26 +156,21 @@
         }
 
         .slide-img {
-            border-width: 4px;
-            padding: 15px;
-            width: 300px !important; 
-            max-width: 300px !important;
+            border-width: 2px;
+            padding: 6px;
+            width: 80px !important; /* Slightly larger on huge screens */
+            max-width: 80px !important;
         }
     }
 
-    /* 8. HIDDEN ELEMENTS (Explicitly hiding specific Elfsight App) */
-    .elfsight-app-27fd129f-b443-497f-b128-af08ad4d46a7,
-    div[class*="elfsight-app-27fd129f"], 
-    .elfsight-app-a2603afa-264d-44fd-a6a8-5ecb3be7d8c6 {
+    /* 8. HIDDEN ELEMENTS */
+    .elfsight-app-a2603afa-264d-44fd-a6a8-5ecb3be7d8c6,
+    .elfsight-app-27fd129f-b443-497f-b128-af08ad4d46a7 {
         display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        height: 0 !important;
-        width: 0 !important;
-        position: absolute !important;
-        z-index: -9999 !important;
-        overflow: hidden !important;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        overflow: hidden;
     }
 </style>
      
