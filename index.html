@@ -73,7 +73,7 @@
         padding: 20px;
     }
 
-    /* NEW: Ensures content inside carousel slides is centered */
+    /* Ensures content inside carousel slides is centered */
     .slide-content {
         display: flex;
         flex-direction: column;
@@ -86,20 +86,19 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Reduced to 50% - Icon Size) */
+    /* 4. THE IMAGE (Medium-Small Size - 80px Max) */
     .slide-img {
         box-sizing: border-box;
         border: 1px solid #ddd;
         border-radius: 2px;
-        padding: 4px; /* Reduced padding for smaller size */
+        padding: 5px; 
         background-color: rgba(255, 255, 255, 0.1);
         
-        /* Drastically reduced size:
-           Min: 30px
-           Max: 50px (Very small, icon size)
+        /* Min: 50px
+           Max: 80px (Increased from 50px)
         */
-        width: clamp(30px, 4vw, 50px) !important;
-        max-width: 100px !important;
+        width: clamp(50px, 6vw, 80px) !important;
+        max-width: 80px !important;
         height: auto; 
         
         margin-bottom: 15px;
@@ -109,7 +108,7 @@
 
     .slide-img:hover {
         box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
-        transform: scale(1.1); /* Larger hover scale for visibility */
+        transform: scale(1.05); 
     }
 
     /* 5. BUTTON STYLING */
@@ -139,8 +138,8 @@
         }
 
         .slide-img {
-            width: 15% !important; /* Very small on phone screens */
-            max-width: 50px;
+            width: 20% !important; /* Slightly larger on mobile (was 15%) */
+            max-width: 80px;
             margin-bottom: 10px;
         }
 
@@ -157,9 +156,9 @@
 
         .slide-img {
             border-width: 2px;
-            padding: 6px;
-            width: 80px !important; /* Slightly larger on huge screens */
-            max-width: 80px !important;
+            padding: 8px;
+            width: 100px !important; /* Adjusted for 4k screens */
+            max-width: 100px !important;
         }
     }
 
@@ -263,4 +262,3 @@
 
 </body>
 </html>
-
