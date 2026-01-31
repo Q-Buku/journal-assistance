@@ -18,9 +18,9 @@
     body {
         margin: 0;
         padding: 5px;
-        padding-top: 70px; 
-        overflow-x: hidden;
-        background-color: #222; 
+        padding-top: 70px; /* Space for the navbar */
+        overflow-x: hidden; /* Prevents scrollbar if arrows go slightly too far */
+        background-color: #222; /* Dark background so video placeholder looks good */
     }
 
     /* 2. TEXT & TYPOGRAPHY */
@@ -47,7 +47,7 @@
         margin-top: -15px;
     }
 
-    /* 3. LAYOUT COMPONENTS */
+    /* 3. LAYOUT COMPONENTS (Video & Overlay) */
     #myVideo {
         position: fixed;
         right: 0;
@@ -64,7 +64,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.4); /* Dark overlay */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -81,60 +81,64 @@
         width: 100%;
     }
 
-    .navbar-custom {
-        padding: 0.5rem 1rem !important;
-    }
-
-    /* --- 4. SLIDER ADJUSTMENTS (UPDATED) --- */
+    /* 4. SLIDER CONFIGURATION */
     
     .carousel-container {
-        /* INCREASED SIZE: 80% -> 85% width, 800px -> 1200px max-width */
-        width: 85%; 
-        max-width: 1200px; 
-        margin: 0 auto; 
-        position: relative;
+        /* This sets the size of the slider */
+        width: 85%;            /* Occupies 85% of screen width */
+        max-width: 1200px;     /* Maximum width increased for larger images */
+        margin: 20px auto;     /* Centers the container */
+        position: relative;    /* Essential for arrow positioning */
     }
 
-    /* ARROWS: Adjusted to fit alongside the larger image */
+    /* ARROWS: Move them OUTSIDE the image */
+    
     .carousel-control-prev {
-        /* Move arrow to the left, but keep it on screen */
-        left: -8% !important; 
-        width: 5%; 
+        left: -8% !important;  /* Move Left Arrow outside */
+        width: 5%;             /* Narrow click area */
+        opacity: 0.9;          /* Make them visible */
     }
 
     .carousel-control-next {
-        /* Move arrow to the right, but keep it on screen */
-        right: -8% !important; 
+        right: -8% !important; /* Move Right Arrow outside */
         width: 5%;
+        opacity: 0.9;
     }
 
-    /* Arrow Styling (Dark Circles) */
+    /* Arrow Visual Styling (Dark Circle) */
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        background-color: rgba(0,0,0,0.5); 
-        border-radius: 50%;
-        padding: 2rem;
-        background-size: 50% 50%;
+        background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+        border-radius: 50%;     /* Circular shape */
+        padding: 25px;          /* Size of the circle */
+        background-size: 50%;   /* Size of the arrow inside the circle */
+        border: 1px solid rgba(255,255,255,0.2); /* Subtle border */
     }
 
-    /* --- MOBILE ADJUSTMENTS --- */
-    /* On small screens, we make the image almost full width */
-    /* We pull the arrows slightly closer so they don't fall off the phone screen */
+    .carousel-control-prev:hover, .carousel-control-next:hover {
+        transform: scale(1.1); /* Slight zoom effect on hover */
+        transition: transform 0.2s;
+    }
+
+    /* 5. RESPONSIVE (MOBILE) TWEAKS */
+    @media (max-width: 992px) {
+        /* On Tablets/Laptops: Bring arrows slightly closer */
+        .carousel-control-prev { left: -7% !important; }
+        .carousel-control-next { right: -7% !important; }
+    }
+
     @media (max-width: 768px) {
+        /* On Mobile: Make image wider, bring arrows closer */
         .carousel-container {
-            width: 88%; /* Slightly wider on mobile */
+            width: 90%; 
         }
-        .carousel-control-prev { 
-            left: -6% !important; /* Closer to edge */
-        }
-        .carousel-control-next { 
-            right: -6% !important; /* Closer to edge */
-        }
+        .carousel-control-prev { left: -5% !important; }
+        .carousel-control-next { right: -5% !important; }
         
-        /* Make arrow icons slightly smaller on mobile */
+        /* Make the circle buttons smaller on mobile */
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            padding: 1.5rem;
+            padding: 15px;
         }
     }
 </style>
@@ -142,38 +146,38 @@
 <body>
 
     <div class="content-wrapper">
-        
         <div class="slide-content">
+            
             <h1>AI Assistance</h1>
             <h4>Your Future Partner</h4>
             
-            <br>
-
             <div class="carousel-container">
-                <div id="carouselExample" class="carousel slide">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    
                     <div class="carousel-inner">
-                        
                         <div class="carousel-item active">
-                            <img src="https://picsum.photos/800/400?random=1" class="d-block w-100" alt="Slide 1">
+                            <img src="https://picsum.photos/1200/600?random=10" class="d-block w-100 rounded shadow" alt="Slide 1">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First Slide</h5>
+                                <h5>Big Vision</h5>
+                                <p>Seeing the bigger picture.</p>
                             </div>
                         </div>
 
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/800/400?random=2" class="d-block w-100" alt="Slide 2">
+                            <img src="https://picsum.photos/1200/600?random=20" class="d-block w-100 rounded shadow" alt="Slide 2">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second Slide</h5>
+                                <h5>Wide Perspectives</h5>
+                                <p>Expanding horizons.</p>
                             </div>
                         </div>
 
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/800/400?random=3" class="d-block w-100" alt="Slide 3">
+                            <img src="https://picsum.photos/1200/600?random=30" class="d-block w-100 rounded shadow" alt="Slide 3">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third Slide</h5>
+                                <h5>Future Ready</h5>
+                                <p>Prepared for what comes next.</p>
                             </div>
                         </div>
-
                     </div>
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -184,6 +188,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                    
                 </div>
             </div>
             </div>
@@ -193,4 +198,3 @@
 
 </body>
 </html>
-
