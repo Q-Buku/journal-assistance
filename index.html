@@ -26,9 +26,10 @@
     h1 {
         color: white;
         font-family: 'Agency FB', sans-serif;
-        /* Scales font between 1.8rem and 3.5rem based on screen size */
+        /* === REPLACED: Using Reference Fluid Scaling === */
         font-size: clamp(1.8rem, 5vw, 3.5rem); 
         text-align: center;
+        margin-bottom: 0;
     }
 
     label {
@@ -39,15 +40,16 @@
     h4 {
         color: white;
         font-family: 'Mistral', sans-serif;
+        /* === REPLACED: Using Reference Fluid Scaling === */
         font-size: clamp(1.2rem, 2.5vw, 2rem);
         line-height: 1.1;
         font-weight: 200;
         direction: ltr;
         text-align: center;
-        margin-top: -15px;
+        margin-top: -15px; /* Adjusted to match reference tightness */
     }
 
-    /* 3. LAYOUT COMPONENTS */
+    /* 3. LAYOUT COMPONENTS (Video & Wrapper) */
     #myVideo {
         position: fixed;
         right: 0;
@@ -77,32 +79,36 @@
         padding: 0.5rem 1rem !important;
     }
 
-    /* 4. THE IMAGE (Fixed Proportionally for All Platforms) */
+    /* 4. THE IMAGE (Alignment/Size from Reference) */
     #myImage {
         border: 1px solid #ddd;
         border-radius: 2px;
         padding: 5px;
         padding-top: 20px;
         padding-bottom: 20px;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.1); /* Kept the glass look */
         
-        /* Fluid width: Min 160px (mobile), Max 400px (Smart Board) */
+        /* === REPLACED: Fluid width logic from Reference === */
         width: clamp(160px, 20vw, 185px);
-        height: auto; /* Maintains aspect ratio */
+        height: auto; 
         
-        /* Fluid margin: Scales with height of the screen */
+        /* === REPLACED: Fluid margin logic === */
         margin-bottom: clamp(40px, 4vh, 60px);
         
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
 
     #myImage:hover {
+        /* Merged your glow preference with the Reference scale effect */
         box-shadow: 0 0 10px 2px rgba(0, 140, 186, 0.7);
         transform: scale(1.02);
     }
 
-    /* 5. BUTTON STYLING */
+    /* 5. BUTTON STYLING (Kept your specific button code) */
     .button {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -ms-appearance: none;
         appearance: none;
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         background-color: #ffffffdf;
@@ -123,12 +129,14 @@
     /* 6. SMART DEVICE SPECIFIC (Phones) */
     @media (max-width: 600px) {
         .content-wrapper {
+            /* === REPLACED: Reference Logic for better scrolling === */
             padding-top: 100px;
-            justify-content: flex-start; /* Better for scrolling on small screens */
+            justify-content: flex-start; 
         }
 
         #myImage {
-            width: 55%; /* Slightly larger relative to phone screen */
+            /* === REPLACED: Reference Logic for sizing === */
+            width: 55%; 
             margin-bottom: 20px;
         }
 
@@ -137,30 +145,16 @@
         }
     }
 
-    /* 7. SMART BOARD & 4K OPTIMIZATION (Ultra-wide/High-res) */
+    /* 7. SMART BOARD & 4K OPTIMIZATION */
     @media (min-width: 2000px) {
         .content-wrapper {
-            gap: 20px; /* Adds consistent spacing between elements */
+            gap: 20px; 
         }
         
         #myImage {
             border-width: 3px;
             padding: 10px;
         }
-    }
-
-    /* 8. HIDDEN ELEMENTS (Elfsight Widget 1) */
-    .elfsight-app-a2603afa-264d-44fd-a6a8-5ecb3be7d8c6 {
-        display: none !important;
-    }
-
-    /* 9. HIDDEN ELEMENTS (Q-30for30 Widget) */
-    .elfsight-app-27fd129f-b443-497f-b128-af08ad4d46a7 {
-        display: none !important;
-        visibility: hidden;
-        height: 0;
-        width: 0;
-        overflow: hidden;
     }
 </style>
 </head>
@@ -254,6 +248,7 @@
 
 </body>
 </html>
+
 
 
 
